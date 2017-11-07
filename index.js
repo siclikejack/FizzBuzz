@@ -1,76 +1,51 @@
-/*for (var i = 1; i <= 256; i++){
+const readline = require('readline');
 
-    // Create string based on multiple rules
-    var str = "";
-    // Fizz comes first
-    if (i % 3 === 0) {
-        str+="Fizz-";
-    }
-    // Fezz comes before the Bs
-    if (i % 13 === 0) {
-        str += "Fezz-";
-    }
-    // Buzz for multiples of 5
-    if (i % 5 === 0) {
-        str+="Buzz-";
-    }
-    // Bang for multiples of 7
-    if (i % 7 === 0) {
-        str+="Bang-";
-    }
-    // Multiple of 11 overwrites all except Fezz
-    if (i % 11 === 0) {
-        str = "Bong-";
-        // Re-add Fezz to multiples of 13
-        if (i % 13 === 0) {
-            str = "Fezz-" + str;
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Please enter the maximum number: ", (max) => {
+    rl.question("3 rule on? ", (rule3) => {
+        rl.question("5 rule on? ", (rule5) => {
+            rl.question("7 rule on? ", (rule7) => {
+                rl.question("11 rule on? ", (rule11) => {
+                    rl.question("13 rule on? ", (rule13) => {
+                        rl.question("17 rule on? ", (rule17) => {
+
+    for (let i = 1; i <= max; i++) {
+
+        let words = [];
+
+        if (i % 3 === 0 && rule3 === "Y") {
+            words.push("Fizz");
+        }
+
+        if (i % 13 === 0 && rule13 === "Y") {
+            words.push("Fezz");
+        }
+
+        if (i % 5 === 0 && rule5 === "Y") {
+            words.push("Buzz");
+        }
+
+        if (i % 7 === 0 && rule7 === "Y") {
+            words.push("Bang");
+        }
+
+        if (i % 11 === 0 && rule11 === "Y") {
+            words = words.filter(word => word === "Fezz");
+            words.push("Bong");
+        }
+
+        if (i % 17 === 0 && rule17 === "Y") {
+            words.reverse();
+        }
+
+        if (words.length > 0) {
+            console.log(words.join(""));
+        } else {
+            console.log(i);
         }
     }
-    // Reverse order of words if multiple of 17
-    if (i % 17 === 0) {
-        str = str.split("-").reverse().join("-");
-    }
-    // Remove dashes
-    str = str.replace(/-/g,"");
-
-    if (str === "") {
-        str = i;
-    }
-    console.log(str);
-}*/
-
-for (let i = 1; i <= 255; i++) {
-
-    let words = [];
-
-    if (i % 3 === 0) {
-        words.push("Fizz");
-    }
-
-    if (i % 13 === 0) {
-        words.push("Fezz");
-    }
-
-    if (i % 5 === 0) {
-        words.push("Buzz");
-    }
-
-    if (i % 7 === 0) {
-        words.push("Bang");
-    }
-
-    if (i % 11 === 0) {
-        words = words.filter(word => word === "Fezz");
-        words.push("Bong");
-    }
-
-    if (i % 17 === 0) {
-        words.reverse();
-    }
-
-    if (words.length > 0) {
-        console.log(words.join(""));
-    } else {
-        console.log(i);
-    }
-}
+})})})})})})});
